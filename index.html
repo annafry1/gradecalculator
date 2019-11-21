@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1 id="title">Grade Calculator</h1>
+
+<div id="tables">
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Grades</th>
+        <th>Weight</th>
+    </tr>
+    <tr>
+        <td>Homework</td>
+        <td><input type="text" id="hwGrades" placeholder="Enter Scores" value="80,90,100"></td>
+        <td><input type="text" id="hwWeight" placeholder="Enter Weight" value="20"></td>
+    </tr>
+    <tr>
+        <td>Quizzes</td>
+        <td><input type="text" id="quizGrades" placeholder="Enter Scores" value="80,90,100"></td>
+        <td><input type="text" id="quizWeight" placeholder="Enter Weight" value="20"></td>
+    </tr>
+    <tr>
+        <td>Tests</td>
+        <td><input type="text" id="testGrades" placeholder="Enter Scores" value="80,90,100"></td>
+        <td><input type="text" id="testWeight" placeholder="Enter Weight" value="20"></td>
+    </tr>
+    <tr>
+        <td>Participation</td>
+        <td><input type="text" id="partGrades" placeholder="Enter Scores" value="80,90,100"></td>
+        <td><input type="text" id="partWeight" placeholder="Enter Weight" value="15"></td>
+    </tr>
+    <tr>
+        <td>Projects</td>
+        <td><input type="text" id="projectGrades" placeholder="Enter Scores" value="80,90,100"></td>
+        <td><input type="text" id="projectWeight" placeholder="Enter Weight" value="10"></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>Desired Grade in Class (%)</th>
+        <th>Weight of Final (%) </th>
+    </tr>
+    <td><input type="text" id="gradeWanted" placeholder="Enter Desired Grade (%)" value="95"></td>
+    <td><input type="text" id="examWeight" placeholder="Enter Exam Weight (%)" value="15"></td>
+</table>
+</div>
+
+<button id="calculateGrade" onclick="calculateCurrentGrade()">Calculate Current Grade</button>
+<div id="currentGrade"></div>
+<button id="calculateGradeNeeded" onclick="calculateGradeNeeded()">Calculate Exam Grade Needed</button>
+<div id="gradeNeeded"></div>
+<button id="reset" onclick="reset()">Reset</button>
+</body>
+</html>
