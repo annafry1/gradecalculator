@@ -1,6 +1,13 @@
-#tables{
+#tables, body{
     position: relative;
+    width: 50%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+#calculateGrade,#calculateGradeNeeded,#reset{
+    position: relative;
+    top: 10px;
+    bottom: 10px;
 }

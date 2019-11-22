@@ -1,4 +1,4 @@
-function calculateCurrentGrade(){
+function calculateCurrentGrade(final){
     var hwGrades = strToNum(document.getElementById("hwGrades").value);
     var hwAvg = avgArr(hwGrades);
     var quizGrades = strToNum(document.getElementById("quizGrades").value);
@@ -10,12 +10,21 @@ function calculateCurrentGrade(){
     var projectGrades = strToNum(document.getElementById("projectGrades").value);
     var projectAvg = avgArr(projectGrades);
 
-    var hwWeight = parseInt(document.getElementById("hwWeight").value)/100;
-    var quizWeight = parseInt(document.getElementById("quizWeight").value)/100;
-    var testWeight = parseInt(document.getElementById("testWeight").value)/100;
-    var partWeight = parseInt(document.getElementById("partWeight").value)/100;
-    var projectWeight = parseInt(document.getElementById("projectWeight").value)/100;
-    var finalWeight = parseInt(document.getElementById("examWeight").value)/100;
+    var hwWeight = parseInt(document.getElementById("hwWeight").value);
+    var quizWeight = parseInt(document.getElementById("quizWeight").value);
+    var testWeight = parseInt(document.getElementById("testWeight").value);
+    var partWeight = parseInt(document.getElementById("partWeight").value);
+    var projectWeight = parseInt(document.getElementById("projectWeight").value);
+    var finalWeight = parseInt(document.getElementById("examWeight").value);
+
+    if(!final){
+        var totalWeight = hwWeight + quizWeight + testWeight + partWeight + projectWeight;
+        hwWeight = hwWeight/totalWeight;
+        quizWeight = quizWeight/totalWeight;
+        testWeight = testWeight/totalWeight;
+        partWeight = partWeight/totalWeight;
+        projectWeight = projectWeight/totalWeight;
+    }
 
     var hw = hwAvg * hwWeight;
     var quiz = quizAvg * quizWeight;
@@ -26,18 +35,23 @@ function calculateCurrentGrade(){
 
     var currentGrade = Math.floor(hw + quiz + test + part + project);
     console.log(currentGrade);
-    document.getElementById("currentGrade").innerHTML = "Your current grade is " + currentGrade + "%";
-    return currentGrade;
+    if(isNaN(currentGrade)){
+        alert("Please enter valid weights or grades");
+    }else{
+        document.getElementById("currentGrade").innerHTML = "Your current grade is " + currentGrade + "%";
+        return currentGrade;
+    }
+
 
 }
 
 function calculateGradeNeeded(){
-    var currentGrade = calculateCurrentGrade();
+    var currentGrade = calculateCurrentGrade(true);
     var gradeWanted = strToNum(document.getElementById("gradeWanted").value);
     var finalWeight = parseInt(document.getElementById("examWeight").value);
 
-    var a = gradeWanted - ((currentGrade/100) * (100 - finalWeight));
-    var gradeNeeded = Math.floor((100 * a) / finalWeight);
+    var a = gradeWanted - currentGrade;
+    var gradeNeeded = Math.floor(a / finalWeight);
     console.log(gradeWanted);
     document.getElementById("gradeNeeded").innerHTML = "You will need " + gradeNeeded + " to get a " + gradeWanted + " in the class.";
 
@@ -47,6 +61,10 @@ function strToNum(str){
     var arr = str.split(",");
     for (var i = 0; i < arr.length; i ++){
         arr[i] = parseInt(arr[i]);
+        if(arr[i] > 200){
+            alert("Value too high.");
+            return;
+        }
     }
     console.log(arr);
     return arr;
