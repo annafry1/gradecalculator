@@ -1,4 +1,5 @@
-#tables, body{
+body{
+    background-color: lightblue;
     position: relative;
     width: 50%;
     text-align: center;
@@ -6,8 +7,20 @@
     margin-right: auto;
 }
 
+#one,#two{
+    position: relative;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+
 #calculateGrade,#calculateGradeNeeded,#reset{
     position: relative;
     top: 10px;
     bottom: 10px;
+}
+
+button{
+    color: darkgray;
+
 }
