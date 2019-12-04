@@ -38,7 +38,6 @@ function calculateCurrentGrade(final){
     var part = partAvg * partWeight;
     var project = projectAvg * projectWeight;
 
-
     var currentGrade = Math.floor(hw + quiz + test + part + project);
     console.log(currentGrade);
     if(isNaN(currentGrade)){
