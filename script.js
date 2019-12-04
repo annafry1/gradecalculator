@@ -24,6 +24,12 @@ function calculateCurrentGrade(final){
         testWeight = testWeight/totalWeight;
         partWeight = partWeight/totalWeight;
         projectWeight = projectWeight/totalWeight;
+    }else{
+        hwWeight = hwWeight/100;
+        quizWeight = quizWeight/100;
+        testWeight = testWeight/100;
+        partWeight = partWeight/100;
+        projectWeight = projectWeight/100;
     }
 
     var hw = hwAvg * hwWeight;
@@ -37,21 +43,23 @@ function calculateCurrentGrade(final){
     console.log(currentGrade);
     if(isNaN(currentGrade)){
         alert("Please enter valid weights or grades");
-    }else{
+    }else if(!final){
         document.getElementById("currentGrade").innerHTML = "Your current grade is " + currentGrade + "%";
-        return currentGrade;
     }
-
+    return currentGrade;
+    console.log(currentGrade);
 
 }
 
 function calculateGradeNeeded(){
     var currentGrade = calculateCurrentGrade(true);
+    console.log(currentGrade);
     var gradeWanted = strToNum(document.getElementById("gradeWanted").value);
     var finalWeight = parseInt(document.getElementById("examWeight").value);
 
-    var a = gradeWanted - currentGrade;
-    var gradeNeeded = Math.floor(a / finalWeight);
+    var a = (gradeWanted - currentGrade);
+    console.log(a);
+    var gradeNeeded = Math.floor((a / finalWeight) * 100) ;
     console.log(gradeWanted);
     document.getElementById("gradeNeeded").innerHTML = "You will need " + gradeNeeded + " to get a " + gradeWanted + " in the class.";
 
@@ -66,7 +74,6 @@ function strToNum(str){
             return;
         }
     }
-    console.log(arr);
     return arr;
 }
 
