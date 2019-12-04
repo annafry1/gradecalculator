@@ -16,7 +16,7 @@ body{
 }
 
 tr,td{
-    background-color: aliceblue;
+    background-color: lightgray;
 }
 
 #calculateGrade,#calculateGradeNeeded,#reset{
