@@ -7,20 +7,20 @@ body{
     margin-right: auto;
 }
 
-#one,#two{
+#one,#two,th,td{
     position: relative;
     width: 50%;
     text-align: center;
     margin: auto;
+    border: 1px solid black;
+}
+
+tr,td{
+    background-color: aliceblue;
 }
 
 #calculateGrade,#calculateGradeNeeded,#reset{
     position: relative;
     top: 10px;
     bottom: 10px;
-}
-
-button{
-    color: darkgray;
-
 }
